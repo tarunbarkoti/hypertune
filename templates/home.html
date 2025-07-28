@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Fine-Tuning</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .navbar-custom {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ffffff !important;
+        }
+
+        .nav-link {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: #00bcd4 !important;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .glass:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 30px rgba(0, 255, 255, 0.6);
+        }
+
+        .Vision {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            /* box-shadow: 0 0 20px rgba(0, 255, 255, 0.3); */
+            /* transition: transform 0.3s ease-in-out; */
+        }
+
+        body {
+            padding-top: 80px;
+            /* Adjust this based on navbar height */
+        }
+    </style>
+</head>
+
+<body class="relative bg-black text-white">
+    <!-- Background Video -->
+    <video autoplay muted loop class="video-bg">
+        <source src="static\vedios\video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Navbar -->
+    <nav
+        class="bg-gray-800 fixed w-[80%] top-5 left-1/2 transform -translate-x-1/2 rounded-full shadow-xl backdrop-blur-md bg-opacity-30 z-50 h-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full">
+            <div class="flex justify-between items-center h-full">
+                <!-- Logo -->
+                <div>
+                    <a href="index.html" class="text-xl font-bold text-cyan-400">HyperTune</a>
+                </div>
+    
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-7">
+                    <a href="index.html" class="hover:text-cyan-400">Home</a>
+                    <a href="index.html#vision" class="hover:text-cyan-400">About</a>
+                    <a href="index.html#services" class="hover:text-cyan-400">Services</a>
+                    <a href="contact.html" class="hover:text-cyan-400">Contact</a>
+                    <a href="login.html"
+                        class="px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl text-lg shadow-lg transition-transform transform hover:scale-105">Login</a>
+                </div>
+    
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-btn" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-gray-800 bg-opacity-30 backdrop-blur-md space-y-4 p-4 rounded-b-2xl">
+            <a href="index.html" class="block hover:text-cyan-400">Home</a>
+            <a href="index.html#vision" class="block hover:text-cyan-400">About</a>
+            <a href="index.html#services" class="block hover:text-cyan-400">Services</a>
+            <a href="contact.html" class="block hover:text-cyan-400">Contact</a>
+            <a href="login.html" class="block bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-600">Login</a>
+        </div>
+    </nav>
+  
+
+
+
+
+    <!-- Hero Section -->
+    <section class="flex flex-col items-center justify-center h-screen text-center text-white px-6">
+        <h1 class="text-6xl font-extrabold leading-tight">Automate AI Model Fine-Tuning</h1>
+        <p class="text-xl mt-4 max-w-3xl text-gray-300">
+            Effortlessly fine-tune AI models with our cutting-edge, high-performance platform powered by Spheron
+            Network.
+        </p>
+        <a href="plans.html"
+            class="mt-6 px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-xl text-lg shadow-lg transition-transform transform hover:scale-105">
+            Get Started →
+        </a>
+    </section>
+
+
+    <!-- Overview Section -->
+    <div class="flex flex-col md:flex-row items-center bg-gray-900 p-10">
+        <!-- Text on the Left -->
+        <div class="md:w-2/3 w-full text-white md:pr-10">
+            <h1 class="text-5xl font-bold">Overview</h1>
+            <p class="text-xl mt-4">
+                Our AI Fine-Tuning platform provides an automated pipeline for fine-tuning pre-trained models with
+                user-defined configurations.
+                We leverage the power of Spheron Network** to ensure fast, efficient, and scalable AI model
+                optimization.
+                Our platform supports seamless model selection, hyperparameter tuning, and dataset preprocessing, making
+                the fine-tuning process effortless.
+                With real-time performance tracking and automated deployment, users can achieve high-quality AI models
+                with minimal complexity.
+            </p>
+        </div>
+
+        <!-- Image on the Right -->
+        <div class="md:w-1/3 w-full mt-6 md:mt-0">
+            <img src="static\images\finetune.jpg" alt="Overview Image" class="w-full h-auto rounded-lg">
+        </div>
+    </div>
+
+
+
+    <!-- why us Section -->
+    <div class="bg-black p-10 pt-20 text-white">
+        <h2 class="text-4xl font-bold text-center mb-10">Why Us ?</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="text-center bg-gray-800 p-6 rounded-lg">
+                <img src="static\images\namaste.jpg" alt="Model Selection" class="w-4/5 mx-auto">
+                <h3 class="text-2xl font-bold mt-4">Speacific Model Selection</h3>
+                <p>Users can select a model to fine-tune via an intuitive UI.
+                    Our platform provides a seamless experience, allowing users to explore various
+                    pre-trained models tailored to different AI tasks. </p>
+            </div>
+            <div class="text-center bg-gray-800 p-6 rounded-lg">
+                <img src="static\images\hi.jpg" alt="Custom Training" class="w-4/5 mx-auto">
+                <h3 class="text-2xl font-bold mt-4">Custom Training Configurations</h3>
+                <p>Adjust hyperparameters, dataset size, and optimization techniques to achieve optimal model
+                    performance.</p>
+            </div>
+            <div class="text-center bg-gray-800 p-6 rounded-lg">
+                <img src="static\images\hello.jpg" alt="Metrics" class="w-4/5 mx-auto">
+                <h3 class="text-2xl font-bold mt-4">Real-Time Training Metrics</h3>
+                <p>Track model accuracy, loss, and improvements instantly with real-time insights.
+                    Our platform provides detailed analytics and visualizations</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 2x2 Grid Section -->
+    <section id="services" class="bg-black text-white py-16">
+        <div class="text-center mb-12">
+            <h2 class="text-5xl font-extrabold">Services we Offer </h2>
+            <p class="text-xl mt-4 text-gray-400">Experience the best AI fine-tuning capabilities.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 px-6 md:px-16">
+            <!-- Feature 1 -->
+            <a href="plans.html" class="glass p-6 rounded-lg text-center transition-transform hover:scale-105 block">
+                <i class="bi bi-sliders text-6xl text-blue-400"></i>
+                <h3 class="text-2xl font-bold mt-4">AI Model Fine-Tuning</h3>
+                <p class="text-gray-300 mt-2">Optimize AI models with automated tuning.</p>
+            </a>
+
+
+            <!-- Feature 2 -->
+            <a href="plans.html" class="glass p-6 rounded-lg text-center transition-transform hover:scale-105">
+                <i class="bi bi-database text-6xl text-green-400"></i>
+                <h3 class="text-2xl font-bold mt-4">Dataset Preprocessing</h3>
+                <p class="text-gray-300 mt-2">Prepare and clean datasets effortlessly.</p>
+            </a>
+
+            <!-- Feature 3 -->
+            <a href="plans.html" class="glass p-6 rounded-lg text-center transition-transform hover:scale-105">
+                <i class="bi bi-bar-chart text-6xl text-yellow-400"></i>
+                <h3 class="text-2xl font-bold mt-4">Automated Pipelines</h3>
+                <p class="text-gray-300 mt-2">Streamline training jobs with automation.</p>
+            </a>
+
+            <!-- Feature 4 -->
+            <a href="plans.html" class="glass p-6 rounded-lg text-center transition-transform hover:scale-105">
+                <i class="bi bi-graph-up text-6xl text-purple-400"></i>
+                <h3 class="text-2xl font-bold mt-4">Real-Time Metrics</h3>
+                <p class="text-gray-300 mt-2">Monitor accuracy, loss, and performance.</p>
+            </a>
+
+            <!-- Feature 5 (Full Width Centered)
+            <div class="glass p-6 rounded-lg text-center transition-transform hover:scale-105 col-span-2">
+                <i class="bi bi-cloud-upload text-6xl text-red-400"></i>
+                <h3 class="text-2xl font-bold mt-4">One-Click API Deployment</h3>
+                <p class="text-gray-300 mt-2">Deploy fine-tuned models instantly via REST API.</p>
+            </div>
+        </div> -->
+    </section>
+
+    <!-- Our Vision Section -->
+
+    <section id="vision" class="relative bg-black text-white py-20">
+        <div class="container mx-auto text-center">
+            <h2 class="text-5xl font-extrabold mb-6">Our Vision</h2>
+            <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+                We envision a world where AI fine-tuning is seamless, efficient, and accessible to all.
+                Our platform empowers developers, researchers, and enterprises to harness the power of AI without
+                complexities.
+            </p>
+            <div class="flex flex-wrap justify-center gap-8">
+                <!-- Card 1 -->
+                <div class="Vision p-6 w-80 text-center rounded-lg">
+                    <i class="bi bi-lightbulb text-6xl text-blue-400"></i>
+                    <h3 class="text-2xl font-bold mt-4">Innovation</h3>
+                    <p class="text-gray-300 mt-2">Driving the future of AI with cutting-edge technology.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="Vision p-6 w-80 text-center rounded-lg">
+                    <i class="bi bi-people text-6xl text-green-400"></i>
+                    <h3 class="text-2xl font-bold mt-4">Community</h3>
+                    <p class="text-gray-300 mt-2">Creating an open AI ecosystem for all users.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="Vision p-6 w-80 text-center rounded-lg">
+                    <i class="bi bi-shield-lock text-6xl text-yellow-400"></i>
+                    <h3 class="text-2xl font-bold mt-4">Security</h3>
+                    <p class="text-gray-300 mt-2">Ensuring ethical AI fine-tuning with secure pipelines.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-center text-gray-400 py-4">
+        <p>XYZ ©All Rights Reserved</p>
+    </footer>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+    
+        menuBtn.addEventListener('click', () => {
+          mobileMenu.classList.toggle('hidden');
+        });
+      </script>
+</body>
+
+</html>

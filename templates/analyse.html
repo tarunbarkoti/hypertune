@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Model Fine-Tuning Pipeline</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: rgb(238,174,202);
+            background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+            color: #ffffff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #2d3436;
+            background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        h1, h2, h3 {
+            color: #f8f8f2;
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+        }
+        input, select {
+            background-color: #3b3b4f;
+            color: white;
+        }
+        button {
+            background-color: #3CB371;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        button:hover {
+            background-color: #3CB371;
+        }
+        #progressContainer {
+            display: none;
+            width: 100%;
+            background-color: #444;
+            border-radius: 5px;
+        }
+        #progressBar {
+            width: 0%;
+            height: 20px;
+            background-color: #af774c;
+            text-align: center;
+            line-height: 20px;
+            color: white;
+            border-radius: 5px;
+        }
+        .log-container {
+            background: #333;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            min-height: 50px;
+        }
+        #downloadSection {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI Model Fine-Tuning Pipeline</h1>
+
+        <section>
+            <h2>Upload Dataset</h2>
+            <input type="file" id="datasetFile" onchange="showProgressBar()">
+            <button onclick="uploadDataset()">Upload</button>
+            <p id="uploadStatus"></p>
+            
+            <div id="progressContainer">
+                <div id="progressBar">0%</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Fine-Tune Model</h2>
+            <select id="modelSelect">
+                <option value="opt-350m">OPT 350M</option>
+                <option value="gpt-neo-125m">GPT-Neo 125M</option>
+                <option value="flan-t5-small">FLAN-T5 Small</option>
+            </select>
+            
+            <h3>Training Parameters</h3>
+            <label>Batch Size:</label>
+            <input type="number" id="batchSize" value="4" min="1">
+            
+            <label>Epochs:</label>
+            <input type="number" id="numEpochs" value="3" min="1">
+            
+            <label>Learning Rate:</label>
+            <input type="text" id="learningRate" value="5e-5">
+
+            <h3>Fine-Tuning Options</h3>
+            <label class="switch">
+                <input type="checkbox">
+        <span class="slider"></span>
+            </label>
+            <h3>Use Spheron Network GPU resources</h3>
+
+            
+            <button id="fineTuneBtn" style="background-color: #af4c65;">Start Fine-Tuning</button>
+            <p id="fineTuneStatus"></p>
+            <div id="logOutput" class="log-container"></div>
+
+            <div id="progressContainer" style="display: none;">
+                <div id="progressBar" style="width: 0%; background: green; height: 10px;"></div>
+            </div>
+            <pre id="logOutput"></pre>
+            <button id="downloadBtn" style="display:none;" onclick="downloadModel()">Download Model</button>
+            
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
