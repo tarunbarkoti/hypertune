@@ -1,6 +1,6 @@
 # AI Model Fine-Tuning Platform
 
-A cutting-edge **AI Fine-Tuning Platform** that provides an **end-to-end automated pipeline** for fine-tuning pre-trained models. Built with **Flask**, **Tailwind CSS**, and **Spheron Network**, this platform offers a seamless and scalable experience for optimizing AI models with user-defined configurations.
+An **AI Fine-Tuning Platform** that provides an **end-to-end automated pipeline** for fine-tuning pre-trained models. Built with **Flask**, **Tailwind CSS**, and **Spheron Network**, this platform offers a seamless and scalable experience for optimizing AI models with user-defined configurations.
 
 Originally developed during **Frosthack**, a hackathon conducted by **IIT Mandi** as part of the annual techfest **Xpecto'25**, the platform has since been enhanced **post-hackathon** to improve performance, usability, and reliability.
 
