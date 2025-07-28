@@ -102,6 +102,6 @@ This project is **open-source** under the **MIT License**.
 
 ## Authors & Contributors
 
--**Lead Developers:** Tarun Barkoti & Naman Sachdeva 
--**Contributors:** Aniket Prashar & Chaitanya Dalal
+- **Lead Developers:** Tarun Barkoti & Naman Sachdeva 
+- **Contributors:** Aniket Prashar & Chaitanya Dalal
 
