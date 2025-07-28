@@ -34,7 +34,7 @@ Originally developed during **Frosthack**, a hackathon conducted by **IIT Mandi*
 
 ---
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### **Frontend (UI/UX)**
 - **HTML, Tailwind CSS, JavaScript, Bootstrap** – Modern, responsive design.
@@ -51,7 +51,7 @@ Originally developed during **Frosthack**, a hackathon conducted by **IIT Mandi*
 
 ---
 
-## ⚙️ Installation Guide
+## Installation Guide
 
 ### **1. Clone the Repository**
 ```bash
@@ -74,6 +74,7 @@ pip install -r requirements.txt
 ### **4. Run the Flask App**
 ```bash
 python app.py
+```
 
 ### **5. Access the Web App**
 Open your browser and navigate to:  
@@ -81,7 +82,7 @@ Open your browser and navigate to:
 
 ---
 
-## 🤝 Contribution & Collaboration
+## Contribution & Collaboration
 
 We welcome contributions from developers, AI enthusiasts, and researchers! To contribute:
 
@@ -93,14 +94,14 @@ Feel free to reach out for collaboration opportunities.
 
 ---
 
-## 📜 License
+## License
 
 This project is **open-source** under the **MIT License**.
 
 ---
 
-## 👥 Authors & Contributors
+## Authors & Contributors
 
-**Lead Developer:** Tarun Barkoti & Naman Sachdeva 
+**Lead Developers:** Tarun Barkoti & Naman Sachdeva 
 **Contributors:** Aniket Prashar & Chaitanya Dalal
 
