@@ -42,7 +42,7 @@ Originally developed during **Frosthack**, a hackathon conducted by **IIT Mandi*
 ### **Backend & API**
 - **Flask (Python)** – API development and request handling.
 - **Flask‑Login, Flask‑Bcrypt** – User authentication & security.
-- **Spheron Network** – Decentralized GPU acceleration :contentReference[oaicite:1]{index=1}
+- **Spheron Network** – Decentralized GPU acceleration
 
 ### **Machine Learning & AI**
 - **PyTorch, TensorFlow, Hugging Face** – Model fine‑tuning.
@@ -55,8 +55,8 @@ Originally developed during **Frosthack**, a hackathon conducted by **IIT Mandi*
 
 ### **1. Clone the Repository**
 ```bash
-git clone https://github.com/yourusername/AI-Fine-Tuning-Platform.git
-cd AI-Fine-Tuning-Platform
+git clone https://github.com/tarunbarkoti/hypertune
+cd hypertune
 ```
 
 ### **2. Set Up Virtual Environment**
@@ -102,6 +102,6 @@ This project is **open-source** under the **MIT License**.
 
 ## Authors & Contributors
 
-**Lead Developers:** Tarun Barkoti & Naman Sachdeva 
-**Contributors:** Aniket Prashar & Chaitanya Dalal
+-**Lead Developers:** Tarun Barkoti & Naman Sachdeva 
+-**Contributors:** Aniket Prashar & Chaitanya Dalal
 
